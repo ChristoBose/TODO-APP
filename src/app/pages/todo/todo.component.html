@@ -1,0 +1,17 @@
+<div class="todo-container">
+  <h1 class="poppins-bold">To-Do List</h1>
+  <div class="input-group">
+    <input type="text" class="poppins-medium" [(ngModel)]="newTask" placeholder="Enter a new task" />
+    <button (click)="addTask()" class="poppins-regular">Add</button>
+  </div>
+  <ul>
+    <li *ngFor="let task of tasks; let i = index" [class.completed]="task.completed" class="poppins-regular">
+      <label class="custom-checkbox">
+        <input type="checkbox" (change)="toggleCompletion(i)" [checked]="task.completed" />
+        <span class="checkmark"></span>
+      </label>
+      <span class="task-name" class="poppins-regular">{{ task.name }}</span>
+      <button (click)="deleteTask(i)" class="poppins-regular">Delete</button>
+    </li>
+  </ul>
+</div>
